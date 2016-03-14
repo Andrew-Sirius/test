@@ -53,9 +53,10 @@
             <h4>{{$item->title}}</h4>
             <p>{{$item->text}}</p>
             <p>Comments: {{$item->comments}}</p>
+            <p><a href="{{url('/news/delete/'.$item->id)}}">Delete article</a></p>
             <p><a href="{{url('comment/add/'.$item->id)}}">Add comment</a></p>
             @foreach(App\Comment::where('new_id', $item->id)->get() as $comment)
-                <div style="border:1px solid #ededed;">{{$comment->comment}}</div>
+                <div style="border:1px solid #ededed;">{{$comment->comment}}<p><a href="{{url('/comment/delete/'.$comment->id)}}">Delete</a></p></div>
             @endforeach
             <hr>
         @endforeach
