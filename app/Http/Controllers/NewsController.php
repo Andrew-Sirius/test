@@ -14,7 +14,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        return view('news.index', ['news' => News::all()]);
+        return view('news.index', ['news' => News::with('comment')->get()]);
     }
 
     public function create()
